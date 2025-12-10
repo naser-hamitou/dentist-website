@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* @layer base ensures these styles have low specificity.
+  They will be overridden by any utility class you add 
+  directly to a component (e.g., className="font-normal").
+*/
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    /* Access Tailwind variables directly */
+    color: var(--color-slate-900); 
+    font-weight: 700; /* Bold */
+    letter-spacing: -0.025em; /* Tight tracking */
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 2.25rem; /* Fallback size */
+  }
+
+  h2 {
+    font-size: 1.875rem;
+  }
+  
+  /* Optional: Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+}
