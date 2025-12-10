@@ -14,12 +14,12 @@ export const NAVIGATION = [
       name: 'Services', 
       href: '/#services',
       submenu: [
-        { name: 'Urgence Dentaire', href: '/services/urgence-dentaire' },
-        { name: 'Dentisterie Cosmétique', href: '/services/dentisterie-cosmetique' },
-        { name: 'Dentisterie Familiale', href: '/services/dentisterie-familiale' },
-        { name: 'Orthodontie', href: '/services/orthodontie' },
-        { name: 'Implants Dentaires', href: '/services/implants-dentaires' },
-        { name: 'Soins Préventifs', href: '/services/soins-preventifs' },
+        { name: 'Urgence Dentaire', href: '/services-clinique/urgence-dentaire' },
+        { name: 'Dentisterie Cosmétique', href: '/services-clinique/dentisterie-cosmetique' },
+        { name: 'Dentisterie Familiale', href: '/services-clinique/dentisterie-familiale' },
+        { name: 'Orthodontie', href: '/services-clinique/orthodontie' },
+        { name: 'Implants Dentaires', href: '/services-clinique/implants-dentaires' },
+        { name: 'Soins Préventifs', href: '/services-clinique/soins-preventifs' },
       ]
     },
     { name: 'Notre Clinique', href: '/notre-clinique' },
