@@ -1,4 +1,5 @@
 import { SITE_CONFIG } from '@/data/content';
+import Reveal from '@/components/Reveal';
 import { ArrowRight, Calendar } from 'lucide-react';
 
 export default function Hero() {
@@ -7,7 +8,7 @@ export default function Hero() {
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
         
         {/* Left Content */}
-        <div className="space-y-8 max-w-2xl">
+        <Reveal className="space-y-8 max-w-2xl" direction="up">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wide">
             Nouvellement Rénové
           </div>
@@ -35,20 +36,20 @@ export default function Hero() {
               <ArrowRight size={20} />
             </a>
           </div>
-        </div>
+        </Reveal>
 
         {/* Right Image Placeholder */}
-        <div className="relative lg:h-[600px] w-full">
-           <div className="absolute inset-0 bg-blue-200 rounded-[2rem] rotate-3 transform translate-y-4"></div>
-           <div className="absolute inset-0 bg-slate-900 rounded-[2rem] overflow-hidden shadow-2xl">
-             {/* Replace src with your actual image */}
-             <img 
-               src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=2000&auto=format&fit=crop" 
-               alt="Cabinet dentaire moderne" 
-               className="w-full h-full object-cover opacity-90"
-             />
-           </div>
-        </div>
+        <Reveal className="relative lg:h-[600px] w-full" direction="left" delay={0.08}>
+          <div className="absolute inset-0 bg-blue-200 rounded-[2rem] rotate-3 transform translate-y-4"></div>
+          <div className="absolute inset-0 bg-slate-900 rounded-[2rem] overflow-hidden shadow-2xl">
+            {/* TODO:Replace src with your actual image */}
+            <img 
+              src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=2000&auto=format&fit=crop" 
+              alt="Cabinet dentaire moderne" 
+              className="w-full h-full object-cover opacity-90"
+            />
+          </div>
+        </Reveal>
       </div>
     </section>
   );

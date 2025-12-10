@@ -1,5 +1,7 @@
 'use client';
+
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import Reveal from '@/components/Reveal';
 import { SITE_CONFIG } from '@/data/content';
 
 export default function Contact() {
@@ -9,7 +11,7 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
           
           {/* Info Side */}
-          <div>
+          <Reveal direction="right" className="h-full">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Contactez-nous</h2>
             <p className="text-slate-600 mb-12 text-lg">
               Une question ? Une urgence ? Remplissez le formulaire ou appelez-nous directement.
@@ -48,10 +50,10 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Form Side */}
-          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-lg shadow-slate-200/50">
+          <Reveal direction="left" delay={0.05} className="bg-white p-8 md:p-10 rounded-3xl shadow-lg shadow-slate-200/50">
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -78,7 +80,7 @@ export default function Contact() {
                 Envoyer le message
               </button>
             </form>
-          </div>
+          </Reveal>
 
         </div>
       </div>

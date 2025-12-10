@@ -46,14 +46,12 @@ export default function CosmeticDentistryPage() {
       heroBackgroundSrc="/backgrounds/dentisterie-cosmetique.webp"
       imageSrc="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=2070&auto=format&fit=crop"
       
-      // 1. Just the Intro Paragraph here
       description={
         <p className="font-medium text-slate-700">
           Que vous ayez besoin d’un ajustement mineur ou d’un relooking complet, notre équipe d’experts utilise les dernières technologies pour sublimer votre sourire. Nous analysons la forme de votre visage et la teinte de vos dents pour un résultat naturel.
         </p>
       }
 
-      // 2. The Grid goes here now
       details={
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {treatments.map((item, index) => (

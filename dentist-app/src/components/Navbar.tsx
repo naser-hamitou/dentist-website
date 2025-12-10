@@ -1,12 +1,18 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, Phone, Smile, ChevronDown } from 'lucide-react'; // Ajout de ChevronDown
+import { Menu, X, Phone, ChevronDown } from 'lucide-react'; 
 import { SITE_CONFIG, NAVIGATION } from '@/data/content';
+import { Bodoni_Moda } from 'next/font/google';
+
+const bodoniModa = Bodoni_Moda({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  // État pour gérer l'ouverture du sous-menu sur mobile (optionnel, ici on l'affiche par défaut ou au clic)
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null);
 
   const toggleMobileSubmenu = (name: string) => {
@@ -17,9 +23,16 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-slate-200">
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold flex items-center gap-2">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-            <Smile className="text-white w-5 h-5" />
+        <Link href="/" className={`${bodoniModa.className} uppercase text-[0.8rem] font-bold flex items-center gap-2`}>
+          <div className="w-8 h-8 overflow-hidden rounded-lg flex items-center justify-center bg-white">
+            <Image
+              src="/logo.png"
+              alt={`${SITE_CONFIG.name} logo`}
+              width={32}
+              height={32}
+              className="w-full h-full object-contain"
+              priority
+            />
           </div>
           <span>{SITE_CONFIG.name}</span>
         </Link>
@@ -29,14 +42,14 @@ export default function Navbar() {
           {NAVIGATION.map((item) => (
             <div key={item.name} className="relative group">
               {item.submenu ? (
-                // Item avec Dropdown
+                // Item with Dropdown
                 <div className="relative">
                   <button className="flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-blue-600 transition py-2">
                     {item.name}
                     <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-200" />
                   </button>
                   
-                  {/* Le Dropdown */}
+                  {/* Dropdown */}
                   <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 w-56">
                     <div className="bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden">
                       {item.submenu.map((subItem) => (
@@ -52,7 +65,7 @@ export default function Navbar() {
                   </div>
                 </div>
               ) : (
-                // Item standard sans Dropdown
+                // Item standard without Dropdown
                 <Link 
                   href={item.href}
                   className="text-sm font-medium text-slate-600 hover:text-blue-600 transition"
@@ -96,7 +109,7 @@ export default function Navbar() {
                         className={`transition-transform duration-200 ${mobileSubmenuOpen === item.name ? 'rotate-180' : ''}`}
                       />
                     </button>
-                    {/* Sous-menu Mobile */}
+                    {/* Submenu Mobile */}
                     {mobileSubmenuOpen === item.name && (
                       <div className="flex flex-col gap-2 pl-4 border-l-2 border-slate-100 ml-2 mt-2 mb-4">
                         {item.submenu.map((subItem) => (
